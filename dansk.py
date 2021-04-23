@@ -7,7 +7,7 @@ la = ['c', 'c', 'a', 'a', 'b', 'b', 'v', 'v', 'g', 'g', 'd', 'd', 'e', 'e', 'z',
       'm', 'm', 'n', 'n', 'o', 'o', 'p', 'p', 'r', 'r', 's', 's', 't', 't', 'u', 'u', 'f', 'f', 'x', 'x', '#', '#', "'", "'",
       'w', 'w', '-', 'zh', 'zh', 'yi', 'yi', 'ye', 'ye', 'yo', 'yo', 'ch', 'ch', 'sh', 'sh', 'yu', 'yu', 'ya', 'ya']
 
-def remove_n(s, leave=1):
+def remove_n(s, leave=1, leave_l = False):
     s1 = len(s)
     s2 = len(s)
     while(True):
@@ -17,6 +17,8 @@ def remove_n(s, leave=1):
         s1 = s2
         s2 = len(s)
         if s1 == s2: break
+    if not leave_l and s[:2]=='\n':
+        s = s[2:]
     return s
 
 def ddo_tags(tag):
